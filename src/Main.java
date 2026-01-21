@@ -270,7 +270,10 @@ public class Main {
                 System.out.println("The grade has been submitted.");
             } catch (StudentDoesNotExist e) {
                 System.out.printf("Student %s does not exist!\n", id);
-            } catch (InvalidGrade | InputMismatchException e ) {
+            } catch (InvalidGrade e) {
+                System.out.println("Grades must range from 0 to 20!");
+            } catch (InputMismatchException e ) {
+                in.nextLine();
                 System.out.println("Grades must range from 0 to 20!");
             } catch (AssignmentDoesNotExist e){
                 System.out.printf("Assignment %s does not exist!\n", assignment);

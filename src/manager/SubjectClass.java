@@ -134,12 +134,12 @@ public class SubjectClass implements Subject, Serializable {
     @Override
     public boolean addComponent(String name, int weight, int assignmentNumber, int minGrade, boolean attendance)
             throws ComponentAlreadyExists, InvalidWeight, InvalidAssignments {
+        if (components.get(name.toLowerCase()) != null)
+            throw new ComponentAlreadyExists();
         if (weight < 1 || weight > 100)
             throw new InvalidWeight();
         if (assignmentNumber < 1)
             throw new InvalidAssignments();
-        if (components.get(name.toLowerCase()) != null)
-            throw new ComponentAlreadyExists();
         Component component;
         if (minGrade <= 0 || minGrade > 20)
             component =  new ComponentClass(name, weight, assignmentNumber);
@@ -154,10 +154,10 @@ public class SubjectClass implements Subject, Serializable {
     @Override
     public boolean addAssignment(String name, int weight, String component)
             throws AssignmentAlreadyExists, InvalidWeight {
-        if (weight < 1 || weight > 100)
-            throw new InvalidWeight();
         if (assignments.get(name.toLowerCase()) != null)
             throw new AssignmentAlreadyExists();
+        if (weight < 1 || weight > 100)
+            throw new InvalidWeight();
         Component c = components.get(component.toLowerCase());
         Assignment assignment = new AssignmentClass(name, weight, c);
         assignments.put(name.toLowerCase(), assignment);
@@ -184,11 +184,11 @@ public class SubjectClass implements Subject, Serializable {
         Student s = (Student) getStudent(id);
         if (s == null)
             throw new StudentDoesNotExist();
-        if (grade < 0 || grade > 20)
-            throw new InvalidGrade();
         Assignment a = assignments.get(assignment.toLowerCase());
         if (a == null)
             throw new AssignmentDoesNotExist();
+        if (grade < 0 || grade > 20)
+            throw new InvalidGrade();
         s.setGrade(grade, a);
     }
 
