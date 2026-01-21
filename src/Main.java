@@ -138,7 +138,10 @@ public class Main {
         Subject newSubject = new SubjectClass(name, components);
         boolean totalWeight = false;
         for (int i = 0; i < components; i++){
-            System.out.printf("Enter component %d name: ",i+1);
+            if (components == 1)
+                System.out.print("Enter component name: ");
+            else
+                System.out.printf("Enter component %d name: ",i+1);
             String component = in.nextLine().trim();
             System.out.print("Is this component mandatory for attendance? Y/N: ");
             boolean mandatory = in.nextLine().trim().equals("Y");
@@ -165,7 +168,10 @@ public class Main {
             }
             boolean componentWeight = false;
             for (int j = 0; j < assignmentsNr; j++){
-                System.out.printf("Enter assignment %d name: ",i+1);
+                if (assignmentsNr == 1)
+                    System.out.print("Enter assignment name: ");
+                else
+                    System.out.printf("Enter assignment %d name: ",j+1);
                 String assignmentName = in.nextLine().trim();
                 int assignmentWeight;
                 if (assignmentsNr > 1){
