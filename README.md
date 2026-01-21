@@ -1,7 +1,10 @@
+
 # Student Manager App
 
 A Java console application that allows teachers to manage students, subjects, and grades.
 This project was built for academic purposes and to showcase skills in **Object-Oriented Programming** and **Algorithms and Data Structures**.
+
+
 ---
 ## Overview
 
