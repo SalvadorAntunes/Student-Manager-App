@@ -8,6 +8,7 @@ package dataStructures;
  * @param <V> Generic Value
  */
 abstract class AdvancedBSTree <K extends Comparable<K>,V> extends BSTSortedMap<K,V>{
+    
     /**
      * Time complexity: O(1) (constant)
      *
@@ -63,15 +64,6 @@ abstract class AdvancedBSTree <K extends Comparable<K>,V> extends BSTSortedMap<K
      * Assumes the nodes are in one of following configurations:
      *
      * @param x - root of the rotation
-     * <pre>
-     *          z=c       z=c        z=a         z=a
-     *          /  \      /  \       /  \        /  \
-     *        y=b  t4   y=a  t4    t1  y=c     t1  y=b
-     *       /  \      /  \           /  \         /  \
-     *     x=a  t3    t1 x=b        x=b  t4       t2 x=c
-     *    /  \          /  \       /  \             /  \
-     *   t1  t2        t2  t3     t2  t3           t3  t4
-     * </pre>
      * @return the new root of the restructured subtree
      */
     protected BTNode<Entry<K,V>> restructure (BTNode<Entry<K,V>> x) {
